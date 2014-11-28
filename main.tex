@@ -2,9 +2,10 @@
 \documentclass[
   % Replace twoside with oneside if you are printing your thesis on a single side
   % of the paper, or for viewing on screen.
-  %oneside,
-  twoside,
-  11pt, a4paper,
+  oneside,
+  openany,
+  %twoside,
+  12pt, a4paper,
   footinclude=true,
   headinclude=true,
   cleardoublepage=empty
@@ -15,6 +16,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{acronym}
+\usepackage{setspace}
 
 \title{A Brief Overview of MVC in Contemporary Software Design}
 \author{Inzamam Rahaman - 810006495 \and Jherez Taylor \and Steffan Boodhoo}
@@ -29,17 +31,12 @@
 %\include{FrontBackMatter/declaration}
 \include{FrontBackMatter/contents}
 
+\doublespace
 \part{First Part of My Thesis}
 
 \chapter{What is MVC ?}
+\include{q1}
 
-\include{q1.tex}
-
-\section{A Section}
-\lipsum[1] % This is just some filler text. Remove before you start writing
-
-\section{Another Section}
-\lipsum[1] % This is just some filler text. Remove before you start writing
 
 \chapter{Another Chapter}
 \lipsum[1] % This is just some filler text. Remove before you start writing
@@ -52,7 +49,7 @@
 \chapter{Yet Another Chapter}
 \lipsum[1] % This is just some filler text. Remove before you start writing
   
-\
+
 \part{}
 \chapter{ Chapter}
 \lipsum[1]
