@@ -89,8 +89,6 @@ Now let us examine our application and our above scheme for MVC to understand ho
 \item Recall that we have multiple View, Controller pairs. Each of the View, Controller pairs would need to request and consume similar services from the underlying data model. By encapsulating and abstracting our data model in our Model, we can simply reuse our Model for use in all our View, Controller pairs, thereby reducing the complexity and size of our code base, making our application easier to extend, and increasing the re-usability of facets of our code base.
 
 \item Many applications are developed by a team of people as opposed to a single person. Consequently, it would a great boon if our software architectures can accommodate a parallel approach to development. MVC can also be helpful in this regard. Since the Model and the Views are decoupled and the Controller is responsible for translating between them the Model and the Views can be developed independently of one another, with the concentration being placed on the services that ought to be provided by the Model.
-
-\item 
 \end{enumerate}
 
 
