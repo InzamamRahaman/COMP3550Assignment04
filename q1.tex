@@ -11,40 +11,52 @@ Let us now analyze MVC along its three facets - Model, View, and Controller in t
 
 A web application that displays agricultural data to users. An application is a warehouse that monitors the current stock. Both of these applications share an important feature - there is some underlying data model that we want to operate upon in some manner in accord with constraints and  domain logic. 
 
-Abstracting over the underlying data model and its domain logic that is to be used by an application is the responsibility of the \textbf{Model}
+Abstracting over the underlying data model and its domain logic that is to be used by an application, and providing services to access and manipulate the data in accord with said domain logic is the responsibility of the \textbf{Model}.
 
 In OOD, it is not uncommon for elements of data model or domain to represented as Objects that either encapsulate the data directly, or act as an intermediary between the software and the database system using an ORM.
+
+
 \section{View}
 
-Our two example applications above also share other important features - they both need some means of allowing users to view data and to request operations of the data (such as inserting records, finding averages, ect...). 
+For our users to view their requested data, our application would need some mechanism of present our data to our users. The \textbf{View} refers to the component or components that facilitate this task. 
 
-This is activity of presenting data to the user is the responsibility of the \textbf{View}. 
+Since, there can be more than one way to display the data to the user, a single application may have multiple Views - one for each way of presenting data to our end users.
 
-For example, in our web application, our view would comprise our client side markup - our html and css. Similarly, for our warehousing application, our view would be the display component to our UI that the user directly interacts with.
+For example, in our web application, our View(s) would comprise our client side markup - our HTML and CSS. Similarly, for our warehousing application, our View(s) would be the display components of our UI that facilitates the presentation of data to our users.
 
 \section{Controller}
 
-In order for our application to be useful to users, there needs to be some mechanism for the Model and the View to interact with one another. However, due to the loose coupling we maintain between them, they don't "speak the same language". Consequently, we need an intermediary that can translate between the two. This task falls on the shoulders of the \textbf{Controller}.
+In order to request services from our Model in a manner decoupled from our View, we need some component that acts as a middleman, translating between the two and requesting appropriate services from the Model on the behalf of the end-user utilizing the View. This is the responsibility of the \textbf{Controller}.
 
+Since, different Views may have different service requirments of the Model, there is typically a one-to-one mapping between Views and Controllers. As such, an application can have many Controllers. 
 
-For example, in our web application, our controller would be responsible for handling events in our html pages to request and consume services of the Model in order pass the data off to the View for display to the user.
+In addition to supplying the View with a mechanism for interacting with the Model, the Controller can also manipulate the View. For example, the Controller can disable a button in response to notifications sent or delivered by the Model. In some implementations of MVC, their is no clear distinction between a View and its Controller. 
 
 \section{Diagramtic Summary}
 
 \begin{center}
 
-\begin{tikzpicture}[node distance=2cm]
+\begin{tikzpicture}[node distance=2cm,
+ >=latex',
+  auto,
+  thick
+]
 
 \node (c1) [component] {View};
 
-\node (c2) [component, right of=c1, xshift=5cm] {Controller};
+\node (c2) [component, right of=c1, xshift=10cm] {Controller};
 
-\node (c3) [component, below of=c2, yshift=-3cm] {Model};
+\node (c3) [component, below of=c2, yshift=-8cm] {Model};
 
-\draw [arrow] (c1) -- node[anchor=east] {} (c2);
-\draw [arrow] (c2) -- (c3);
-\draw [arrow] (c3) -- (c2);
-\draw [arrow] (c2) -- (c1);
+%\draw [arrow] (c1) -- node[anchor=north] {request operation} (c2);
+%\draw [arrow] (c2) -- node[anchor=east] {request services}(c3);
+%\draw [arrow] (c3) -- node [anchor=north] {consume services and elicit changes};(c2)
+%\draw [arrow] (c2) -- [anchor=west] {Make changes} (c1);
+\path[->,shift left=.75ex]
+    (c1) edge node {request operation}   (c2)
+    (c2) edge node {request service} (c3)
+    (c3) edge node {consume service} (c2)
+    (c2) edge node {changes} (c1);
 
 
 \end{tikzpicture}
