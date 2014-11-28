@@ -63,13 +63,35 @@ In addition to supplying the View with a mechanism for interacting with the Mode
 \section{An example of how it solves the problem}
 
 
-Let us consider the case of an application that renders tables, charts, and graphs to the end-user for analysis. 
+Let us consider the case of an application that renders a table, a bar chart, and a line graph, each on a separate page, for the user. 
 
 
 \begin{enumerate}
-\item The data that is to be presented to the user is initially stored in some database. Our 
+\item The data that is to be presented to the user is initially stored in some database. Our \textbf{Model} is responsible for retrieving the data in our database
+
+\item As aforementioned, our application has three means of presenting information:
+    \begin{itemize}
+    \item A table
+    \item a bar chart
+    \item a line graph
+    \end{itemize}
+    Each of these means of presenting information to the user, would require a different \textbf{View}, comprising  its own UI components
+    
+    
+\item Our application would also need for each view, a \textbf{Controller} that serves as an intermediary between their respective View and the Model - translating between them and eliciting the responsible updates and responses
 \end{enumerate}
 
+
+Now let us examine our application and our above scheme for MVC to understand how MVC helps make our code modular, resuable, and extensible
+
+
+\begin{enumerate}
+\item Recall that we have multiple View, Controller pairs. Each of the View, Controller pairs would need to request and consume similar services from the underlying data model. By encapsulating and abstracting our data model in our Model, we can simply reuse our Model for use in all our View, Controller pairs, thereby reducing the complexity and size of our code base, making our application easier to extend, and increasing the re-usability of facets of our code base.
+
+\item Many applications are developed by a team of people as opposed to a single person. Consequently, it would a great boon if our software architectures can accommodate a parallel approach to development. MVC can also be helpful in this regard. Since the Model and the Views are decoupled and the Controller is responsible for translating between them the Model and the Views can be developed independently of one another, with the concentration being placed on the services that ought to be provided by the Model.
+
+\item 
+\end{enumerate}
 
 
 
