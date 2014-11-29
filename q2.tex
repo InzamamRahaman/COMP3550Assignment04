@@ -6,7 +6,6 @@ Is it all hard ? No  we've MVC frameworks for each language that help us achieve
 for some of these languages are listed as such:
 
 \section{Java}
-
 \begin{itemize}
   \item Spring
   \item Apache Struts
@@ -23,7 +22,12 @@ for some of these languages are listed as such:
 Through analysis, the frameworks usually includes a library of mark up tags, the use of these tags vary from framework to framework. Examples:
 \begin{itemize}
   \item Apache Struts uses their own tags to present information to the user as well as suitable functionality e.g. a form and it's validation
-  \item Spring uses tags to bind Java code to pages. The tags are used to map paths to different components of the webapp, the DispatcherServlet uses these tag defined paths to service incoming http-requests by calling the correct component according to the request as defined by the tags. The components used by Spring can be subdivided as follows Handler mapping, Controller, View resolver, view. When the request is received by the Dispatcher servlet, it is passed to the Handler mapping which returns the necessary controller. When the controller recieves the request it calls the appropriate service. The DispatcherServlet passes the request path to the view resolver which then returns the appropriate view after which is returned after the model is updated. Note that the views for spring are written in jsp which utilizes tags.
+  \item Spring uses tags to bind Java code to pages. The tags are used to map paths to different components of the webapp, the DispatcherServlet uses these tag
+  defined paths to service incoming http-requests by calling the correct component according to the request as defined by the tags. The components used by Spring can be
+  subdivided as follows Handler mapping, Controller, View resolver, view. When the request is received by the Dispatcher servlet,
+  it is passed to the Handler mapping which returns the necessary controller. When the controller recieves the request it calls the appropriate service.
+  The DispatcherServlet passes the request path to the view resolver which then returns the appropriate view after which is returned after the model is updated.
+  Note that the views for spring are written in jsp which utilizes tags.
   \item JSF provides a standard HTML library
 \end{itemize}\par
 
@@ -81,4 +85,6 @@ the view appropriately. \newpage
 \par Depending on the framework, there may or may not be a prototype defined for a model, but basically a model is represented as a javascript object with properties representing the application's data.
 JavaScript views are about building and maintaining a DOM element.
 A view typically observes a model and is notified when the model changes, allowing the view to update itself accordingly. They are implemented through templating (such as Handlebars.js and Mustache) to restrict repetition.
-\par Controllers are an intermediary between models and views which are classically responsible for updating the model when the user manipulates the view. Controllers are defined as objects which may have a prototype defined by the framework with method(s) that manage a view and update the Model, it also contains state from the model for the view.
+\par Controllers are an intermediary between models and views which are classically responsible for updating the model when the user manipulates the view.
+Controllers are defined as objects which may have a prototype defined by the framework with method(s) that manage a view and update the Model,
+it also contains state from the model for the view.
