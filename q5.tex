@@ -1,0 +1,35 @@
+\section{The future of MVC in software development}
+
+The lion's share of software development takes place across the web and it is likely to increase in the future. This is understandable
+as the internet allows for applications to reach a large audience. As time progressed, web developers looked for ways to structure their
+applications by turning to software patterns. MVC gained popularity but there are some concerns with how it is treated. A misunderstanding of
+MVC has resulted in situations where developers think of data as being handled one way, the view handled another way and everything else being labelled
+under `controller`.\par
+
+
+Angular JS in particular was developed in order to address the root of the issue, that HTML was not defined for dynamic views.\par
+\say{AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's
+syntax to express your application's components clearly and succinctly.
+Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write.
+And it all happens within the browser, making it an ideal partner with any server technology.\par
+
+Angular is what HTML would have been had it been designed for applications. HTML is a great declarative language for static documents.
+It does not contain much in the way of creating applications, and as a result building web applications is
+an exercise in what do I have to do to trick the browser into doing what I want?
+}\par
+
+Facebook has chosen to discontinue the use of MVC. Their concern is that MVC does not not scale up for their needs and they have chosen to
+develop a different software pattern: Flux. http://facebook.github.io/flux/docs/overview.html. Their reasoning is that for a large codebase, implementing
+and managing MVC becomes complicated. System complexity grew exponentially with each feature addition which lead to the code being \say{fragile and upredictable.}
+Flux is designed to structure the code in a way that increases the predictability of what action will occur. It promotes single directional data flow
+through an application. \par
+
+//Insert here
+
+\say{The Store contains all the application’s data and the Dispatcher replaces the initial Controller, deciding how the Store is to be
+updated when an Action is triggered. The View is also updated when the Store changes, optionally generating an Action to be processed
+by the Dispatcher. This ensures a unidirectional flow of data between a system’s components. A system with multiple Stores or Views can be
+seen as having only one Store and one View since the data is flowing only one way and the different Stores and Views do not directly affect each other.}\par
+
+By using this approach, the Data Layer is allowed to complete the update of the view before any other action is triggered and the Dispatcher can
+reject actions if it is currently processing a previous action. This results in cleaner code that is easier for future developers to debug.
