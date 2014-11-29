@@ -1,0 +1,29 @@
+\section{Drawbacks}
+
+Although MVC is an excellent means of separating presentation and interaction from system data it
+does have its disadvantages. \par
+
+\textbf {Increased Complexity.} When the blueprint for an application is being constructed it is important to consider its purpose
+and scale. The reason for this is that adhering to the Model-View-Controller
+structure is that it is not always the most effective method to build a UI based application. If the application being considered is
+to be simple in nature then the use of separate model, view and controller components increases the complexity of development without
+much gain. \par
+
+\textbf{Close connection between view and controller.} While the use of the MVC structure mandates that the
+view and the controller be separate components, they still need to closely related which places a limit on the individual
+reuse of said components. A view would be need to be used with its controller and vice version. The exception to this would be
+views that do not trigger updates (read only) and thus they share a controller that ignores all input.\par
+
+\textbf{Close coupling of controllers and views to a given model.} In an MVC structure, the views and the controller components
+make direct calls to the model. The implication here is that any changes to the model would likely break the code utilized by the view and
+the controller. If the system in question uses multiple views and controllers then the is magnified. \par
+
+\textbf{Inefficient data access from the view.} Depending on how the model is implemented, it may be necessary for a view to
+make multiple calls to obtain all of the data required for display. From this, one can see that the view may unnecessarily request unchanged
+data from the model thus weakening the performance of the application if the updates occur frequently. The use of data caches within the view can
+be used to counter this and improve responsiveness.\par
+
+\textbf{Changes must be made to the view and controller when porting the application.} Dependencies that are related to the user interface module
+of a given application are encapsulated within the view and the controller. The components also contain code that is independent of a specific platform.
+Thus, porting an MVC application requires the developers to separate the platform dependent code from the platform agnostic code before rewriting
+the application for a different platform. In light of this, developers can go a step further and encapsulate platform dependencies as required.\par
