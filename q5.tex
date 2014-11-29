@@ -24,10 +24,12 @@ and managing MVC becomes complicated. System complexity grew exponentially with 
 Flux is designed to structure the code in a way that increases the predictability of what action will occur. It promotes single directional data flow
 through an application. \par
 
+//Insert here
+
 \say{The Store contains all the application’s data and the Dispatcher replaces the initial Controller, deciding how the Store is to be
 updated when an Action is triggered. The View is also updated when the Store changes, optionally generating an Action to be processed
 by the Dispatcher. This ensures a unidirectional flow of data between a system’s components. A system with multiple Stores or Views can be
 seen as having only one Store and one View since the data is flowing only one way and the different Stores and Views do not directly affect each other.}\par
 
 By using this approach, the Data Layer is allowed to complete the update of the view before any other action is triggered and the Dispatcher can
-reject actions if it is currently processing a previous action. This results in cleaner code that is easier to debug by future developers of a system.
+reject actions if it is currently processing a previous action. This results in cleaner code that is easier for future developers to debug.
