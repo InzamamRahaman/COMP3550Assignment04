@@ -10,6 +10,8 @@ Abstracting over the underlying data model and its domain logic that is to be us
 
 In OOD, it is not uncommon for elements of data model or domain to represented as Objects that either encapsulate the data directly, or act as an intermediary between the software and the database system using an ORM.
 
+Whenever the Model is updated, it may notify the entities in the system, which can include the entities in the View, about those changes.
+
 
 \section{View}
 
@@ -18,6 +20,8 @@ For our users to view their requested data, our application would need some mech
 Since, there can be more than one way to display the data to the user, a single application may have multiple Views - one for each way of presenting data to our end users.
 
 For example, in our web application, our View(s) would comprise our client side markup - our HTML and CSS. Similarly, for our warehousing application, our View(s) would be the display components of our UI that facilitates the presentation of data to our users.
+
+Moreover in many implementations of MVC, the Views can  subscribe to the Models using some variant of the Observer design pattern in order to get the information to display to the user.
 
 \section{Controller}
 
