@@ -1,4 +1,4 @@
-Why do implement the MVC pattern, when should we use it, well unless your application is very simple, all the time.
+Why do we implement the MVC pattern, when should we use it, well unless your application is very simple, all the time.
 The MVC pattern's reasoning is that of separation of responsibilities, so that when modifying whether it be functionality, data or what the user see's, everything in the
 application does not have to be changed. It makes our code modular, reusable and just easier to maintain.
 This just sounds like a way of coding, well it is, but there are many different languages which all behave differently.
@@ -13,7 +13,6 @@ for some of these languages are listed as such:
   \item jsf (JavaServer Faces)
   \item tapestry
   \item stripes and wicket
-  \item Popular server-side execution environments :
   \item GlassFish
   \item Tomcat
   \item Jboss
@@ -21,7 +20,6 @@ for some of these languages are listed as such:
   \item Wildfly
 \end{itemize}
 
-The MVC frameworks for java
 Through analysis, the frameworks usually includes a library of mark up tags, the use of these tags vary from framework to framework. Examples:
 \begin{itemize}
   \item Apache Struts uses their own tags to present information to the user as well as suitable functionality e.g. a form and it's validation
@@ -39,14 +37,14 @@ classes to manage the Model(s) update and return view(s).
   \item CakePHP
   \item ZEND
   \item SYMFONY
-  \item Popular server-side execution environments: Daemon
+  \item Daemon
 \end{itemize}
 
 \par Through investigation it has been noted that the MVC frameworks for PHP require little to no configurations(e.g. XML/YAML files).
 They contain a library. Contains a strict folder structure representing MVC as well as a strict naming convention where the framework itself associates files by location and name.
 Code ignitor/CakePHP there is a controller class and to use it, we just extend that class. Contollers are initialler loaded from a file that maps pages/uri's to controllers,
 otherwise controllers can be loaded from controllers. There is a model class and we just extend that class to create our own model.
-Models are loaded from the controllers from methods defined in the model. Views are written in HTML.
+Models are loaded from the controllers from methods defined in the model. Views are written in HTML. \newpage
 
 
 \section{Python}
@@ -66,7 +64,7 @@ Views are implemented using a templating strategy where you can define general t
 
 These templates allow snippets of python like code which have access to the variables of the function in which it was retrieved, i.e.
 The function would contain variables passed from the HTTPRequest, and the variables would be used in the inherited template to manipulate
-the view appropriately.
+the view appropriately. \newpage
 
 \section{Javascript}
 
@@ -80,4 +78,7 @@ the view appropriately.
   \item Helma (Server Side)
 \end{itemize}
 
-There are prototypes defined for MVC components that are bound together by scope. Data bindings are
+\par Depending on the framework, there may or may not be a prototype defined for a model, but basically a model is represented as a javascript object with properties representing the application's data.
+JavaScript views are about building and maintaining a DOM element.
+A view typically observes a model and is notified when the model changes, allowing the view to update itself accordingly. They are implemented through templating (such as Handlebars.js and Mustache) to restrict repetition.
+\par Controllers are an intermediary between models and views which are classically responsible for updating the model when the user manipulates the view. Controllers are defined as objects which may have a prototype defined by the framework with method(s) that manage a view and update the Model, it also contains state from the model for the view.
